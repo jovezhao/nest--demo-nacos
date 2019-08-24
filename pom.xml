@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.kupanda</groupId>
+    <artifactId>kuxuebang</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>microservices-user</module>
+        <module>microservices-order</module>
+        <module>microservices-customer</module>
+        <module>microservices-course</module>
+        <module>microservices-distribution</module>
+        <module>microservices-pay</module>
+        <module>distribution-api</module>
+        <module>admin-api</module>
+        <module>parent-api</module>
+        <module>school-api</module>
+        <module>microservices-sms</module>
+        <module>microservices-file</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.7.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <jdk.version>1.8</jdk.version>
+        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+        <lomback.version>1.18.8</lomback.version>
+        <spring-cloud-alibaba-dependencies.version>2.1.0.RELEASE</spring-cloud-alibaba-dependencies.version>
+        <nest.version>1.1-SNAPSHOT</nest.version>
+        <mysql-connector-java.version>8.0.17</mysql-connector-java.version>
+        <HikariCP.version>3.3.1</HikariCP.version>
+        <mybatis-spring-boot-starter.version>2.1.0</mybatis-spring-boot-starter.version>
+        <pagehelper-spring-boot-starter.version>1.2.12</pagehelper-spring-boot-starter.version>
+        <feign.version>1.0-SNAPSHOT</feign.version>
+        <event.version>1.0-SNAPSHOT</event.version>
+
+    </properties>
+
+    <dependencyManagement>
+
+
+       <dependencies>
+
+           <dependency>
+               <groupId>org.springframework.cloud</groupId>
+               <artifactId>spring-cloud-dependencies</artifactId>
+               <version>${spring-cloud.version}</version>
+               <type>pom</type>
+               <scope>import</scope>
+           </dependency>
+
+           <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+           <dependency>
+               <groupId>org.projectlombok</groupId>
+               <artifactId>lombok</artifactId>
+               <version>${lomback.version}</version>
+               <scope>provided</scope>
+           </dependency>
+
+
+
+           <dependency>
+               <groupId>com.alibaba.cloud</groupId>
+               <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+               <version>${spring-cloud-alibaba-dependencies.version}</version>
+               <type>pom</type>
+               <scope>import</scope>
+           </dependency>
+
+           <dependency>
+               <groupId>com.guoshouxiang.nest</groupId>
+               <artifactId>nest-ddd</artifactId>
+               <version>${nest.version}</version>
+           </dependency>
+
+           <dependency>
+               <groupId>com.guoshouxiang.nest</groupId>
+               <artifactId>nest-spring-boot-starter</artifactId>
+               <version>${nest.version}</version>
+           </dependency>
+
+           <dependency>
+               <groupId>com.guoshouxiang.nest</groupId>
+               <artifactId>nest-redis</artifactId>
+               <version>${nest.version}</version>
+           </dependency>
+
+
+           <dependency>
+               <groupId>com.guoshouxiang.nest</groupId>
+               <artifactId>nest-activemq</artifactId>
+               <version>${nest.version}</version>
+           </dependency>
+
+           <dependency>
+               <groupId>com.guoshouxiang.nest</groupId>
+               <artifactId>nest-ioc</artifactId>
+               <version>${nest.version}</version>
+           </dependency>
+
+
+           <!-- 数据库驱动 -->
+           <dependency>
+               <groupId>mysql</groupId>
+               <artifactId>mysql-connector-java</artifactId>
+               <version>${mysql-connector-java.version}</version>
+           </dependency>
+           <!-- 数据库驱动结束 -->
+
+           <!-- 光连接池 -->
+           <dependency>
+               <groupId>com.zaxxer</groupId>
+               <artifactId>HikariCP</artifactId>
+               <version>${HikariCP.version}</version>
+           </dependency>
+           <!-- 光连接池 -->
+
+           <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
+           <dependency>
+               <groupId>org.mybatis.spring.boot</groupId>
+               <artifactId>mybatis-spring-boot-starter</artifactId>
+               <version>${mybatis-spring-boot-starter.version}</version>
+           </dependency>
+
+           <!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper-spring-boot-starter -->
+           <dependency>
+               <groupId>com.github.pagehelper</groupId>
+               <artifactId>pagehelper-spring-boot-starter</artifactId>
+               <version>${pagehelper-spring-boot-starter.version}</version>
+           </dependency>
+
+           <!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper-spring-boot-starter -->
+           <dependency>
+               <groupId>com.kupanda</groupId>
+               <artifactId>microservices-user-feign</artifactId>
+               <version>${feign.version}</version>
+           </dependency>
+
+           <!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper-spring-boot-starter -->
+           <dependency>
+               <groupId>com.kupanda</groupId>
+               <artifactId>microservices-user-event</artifactId>
+               <version>${event.version}</version>
+           </dependency>
+
+
+
+
+       </dependencies>
+
+    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/libs-snapshot-local</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/libs-milestone-local</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release-local</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+</project>

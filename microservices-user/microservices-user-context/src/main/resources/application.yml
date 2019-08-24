@@ -1,0 +1,16 @@
+server:
+  port: 8008
+
+logging:
+  level:
+    org:
+      springframework: debug
+spring:
+  profiles:
+    active: dev
+ribbon:
+  okhttp:
+    enabled: true
+feign:
+  httpclient:
+    connection-timeout: 5000
